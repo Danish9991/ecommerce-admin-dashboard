@@ -34,8 +34,8 @@ const StoreModal = () => {
         console.log(values); 
         try {
           setLoading(true);
-          const response = await axios.post('/api/stores', values)
-          toast.success("store created.")
+          const response = await axios.post('/api/stores', values);
+          window.location.assign(`/${response.data.id}`)
         } catch (error) {
           toast.error("something went wrong.")
         } finally {
@@ -68,7 +68,7 @@ const StoreModal = () => {
 
             <div className='pt-6 space-x-2 flex items-center justify-end w-full'>
               <Button variant="outline" disabled={loading} onClick={storeModal.onClose}>Cancel</Button>
-              <Button type='submit' disabled={loading}>Continue</Button>
+              <Button type="submit" disabled={loading}>Continue</Button>
             </div>
 
           </form>
