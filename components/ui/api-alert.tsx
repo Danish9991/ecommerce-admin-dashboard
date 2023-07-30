@@ -1,3 +1,6 @@
+import { Alert } from "@/components/ui/alert";
+import { Server } from "lucide-react";
+
 interface ApiAlertProps {
     title : string;
     description : string;
@@ -12,4 +15,17 @@ const textMap : Record<ApiAlertProps["variant"], string> = {
 const variantMap : Record<ApiAlertProps["variant"], string> = {
     public : "secondary",
     admin : "destructive"
+}
+
+export const ApiAlert : React.FC<ApiAlertProps> = ( {
+    title,
+    description,
+    variant
+}) => {
+    return (
+        <Alert>
+            <Server className="h-4 w-4"/>
+        </Alert>
+    )
+
 }
